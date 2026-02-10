@@ -1,0 +1,38 @@
+# --- Maven (Build Output) ---
+target/
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# --- IDE Settings (VS Code & IntelliJ) ---
+.vscode/
+.idea/
+*.iml
+*.iws
+*.ipr
+.classpath
+.project
+.settings/
+bin/
+
+# --- Java Crash Logs ---
+hs_err_pid*
+
+# --- OS Junk Files ---
+.DS_Store
+Thumbs.db
+
+# --- Logs ---
+*.log
+
+# --- SECRET CONFIGURATION (Crucial for you) ---
+# Ignore local property overrides so you don't leak passwords
+local.properties
+config.properties
+secrets.properties
+
+# If you use a specific local XML override
+src/test/resources/local-context.xml
