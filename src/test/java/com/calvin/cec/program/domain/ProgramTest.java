@@ -57,6 +57,13 @@ public class ProgramTest {
         }
 
         @Test
+        void nullProgramId_ThrowsIllegalArgumentException() {
+            assertThatThrownBy(() -> new Program(null, TEST_CATEGORY_ID, Set.of(englishDesc)))
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessageContaining("id is required");
+        }
+
+        @Test
         void nullCategoryId_ThrowsIllegalArgumentException() {
             assertThatThrownBy(() -> new Program(new ProgramId(TEST_PROGRAM_ID), null, Set.of(englishDesc)))
                     .isInstanceOf(IllegalArgumentException.class)

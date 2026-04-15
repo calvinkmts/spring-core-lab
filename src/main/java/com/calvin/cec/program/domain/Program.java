@@ -1,7 +1,6 @@
 package com.calvin.cec.program.domain;
 
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
@@ -19,6 +18,10 @@ public class Program {
 
     public Program(ProgramId id, Long categoryId, Set<ProgramDescription> descriptions) {
 
+        if (id == null) {
+            throw new IllegalArgumentException("id is required");
+        }
+
         if (categoryId == null) {
             throw new IllegalArgumentException("categoryId is required");
         }
@@ -29,7 +32,7 @@ public class Program {
 
         this.id = id;
         this.categoryId = categoryId;
-        this.descriptions = new HashSet<>(descriptions);
+        this.descriptions = Set.copyOf(descriptions);
     }
 
     public Optional<ProgramDescription> getDescriptionIn(String languageCode) {
